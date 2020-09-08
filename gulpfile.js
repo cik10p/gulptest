@@ -1,5 +1,5 @@
 const gulp = require('gulp');
-const { series, parallel  } = require('gulp');
+const { parallel  } = require('gulp');
 const imagemin = require('gulp-imagemin');
 const uglify = require('gulp-uglify');
 const sass = require('gulp-sass');
@@ -12,9 +12,6 @@ const concat = require('gulp-concat');
   gulp.dest - Points to folder to output
   gulp.watch - Watch files and folders for changes
 */
-
-// Logs Message
-
 
 exports.messageStart = () => (
   console.log('Gulp says hi!')
@@ -50,13 +47,3 @@ exports.css = () => {
 
 exports.default = parallel(this.messageStart, this.copyHtml, this.imageMin, this.scripts, this.css, this.messageFinish);
 
-//  gulp.task('default', ['message', 'copyHtml', 'scripts']);
-
-// gulp.task('default', gulp.series(message, copyHtml, imageMin, sass, scripts) );
-
-// gulp.task('watch', function(){
-//   gulp.watch('src/js/*.js', ['scripts']);
-//   gulp.watch('src/images/*', ['imageMin']);
-//   gulp.watch('src/css/*.scss', ['sass']);
-//   gulp.watch('src/*.html', ['copyHtml']);
-// });
